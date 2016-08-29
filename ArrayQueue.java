@@ -2,97 +2,90 @@
 * Java implementation of a queue using array.
 * For demo purpose, should hold a maximum of 10 integers.
 *
-* @author  [your full name here]
-* @link    [full github url]
-* @version [version number]
-* @since   [last updated dd/mm/yyyy]
+* @author  Renaldo Valente
+* @link    https://github.com/arrowbrave
+* @version 1.0
+* @since   29/08/2016
 */
 
 public class ArrayQueue {
   
-  // note: variable declarations
-  private int capacity; // note: optional, you may also use array.length
-  private int head; // note: value of front item
-  private int tail; // note: optional, just to demo
-  private int items; // note: counter number of items
-  private int[] storage; // note: array is of integer values
+  private int capacity;
+  private int head;
+  private int tail;
+  private int items;
+  private int[] storage;
   
-  // note: constructor = initialize an object instance of the class
   public ArrayQueue(int size) {
-    capacity = size; // note: optional, can directly pass a new int[size]
+    capacity = size;
     storage = new int[capacity];
-    // todo: initialize values for items, head, and tail
+    items = 0;
+    head = 0;    
+    tail = 0;
   } 
 
-  // note: will display the array
   public void show() {
-    // note: the top of the queue starts from array[0] then newer item gets added on the tail and removes in the front
     for (int i = 0; i < capacity; i++) {
-      System.out.println("queue["+ i +"] = " + storage[]); // todo: use adjust(head+i) to adjust each item's position
+      System.out.println("queue["+ i +"] = " + storage[adjust(head+i)]);
     }
-      System.out.println(); // note: prints optional new line for readability
+      System.out.println();
   }
   
-  // note: will check if it's true that the array is empty
   private boolean isEmpty() {
-    if (items == 0) { // note: checks if numbers items has reached 0 or empty
-      System.out.println(" "); // todo: print error message here
-      System.out.println(); // note: this prints optional new line for readability
+    if (items == 0) {
+      System.out.println("STORAGE IS EMPTY.");
+      System.out.println();
       return true;
     } 
-    return false; // note: defaults to false
+    return false;
   }
 
   private boolean isFull() {
-    if (items == capacity) { // note: compares if number of items has reached capacity limit
-      System.out.println(" "); // todo: print error message here
-      System.out.println(); // note: this prints optional new line for readability
+    if (items == capacity) {
+      System.out.println("STORAGE IS FULL.");
+      System.out.println();
       return true;
     } 
-    return false; // note: defaults to false
+    return false;
   }
 
-  // note: will add value to the tail of array
   public void enqueue(int value) {
-    tail = items-1; // note: tail is last item with value
+    tail = items-1;    
     if (isFull()) {
       System.out.println("... trying to enqueue on queue[" + tail + "] ...");
-      System.out.println(" "); // todo: print error message here
-      System.out.println(); // note: prints optional new line for readability
+      System.out.println("ADD FAILED.");
+      System.out.println();
     } else {
       System.out.println("... trying to enqueue on queue[" + items + "] ...");
-      storage[adjust(head + items)]; // todo: assign the value to the adjusted position of head
-      items; // todo: should increment or decrement?
-      System.out.println(value + " was successfully _________."); // todo: what does enqueue do?
-      System.out.println(); // note: prints optional new line for readability
+      storage[adjust(head + items)] = value;
+      items++;
+      System.out.println(value + " was successfully added.");
+      System.out.println();
     }
   }
 
-  // note: will remove value to the head of array
   public int dequeue() {    
-    if (isEmpty()) { // note: checks if empty, then stop
+    if (isEmpty()) {
       System.out.println("... trying to dequeue head ...");
-      System.out.println(" "); // print error message here
-      System.out.println(); // prints optional new line for readability
+      System.out.println("REMOVE FAILED.");
+      System.out.println();
     } else {  
       System.out.println("... trying to dequeue head ...");
-      int temp; // todo: pass the value of head to a temporary variable
-      storage[head]; // todo: now, empty the value of current head
-      adjust(head + 1); // todo: pass the next value as new head
-      items; // todo: should increment or decrement?
-      System.out.println(head + " was successfully _________."); // todo: what does dequeue do?
-      System.out.println(); // note: prints optional new line for readability
-      return temp; // note: returns the temp as head
+      int temp = storage[head];
+      storage[head] = 0;
+      head = adjust(head + 1);
+      items--;
+      System.out.println(head + " was successfully removed.");
+      System.out.println();
+      return temp;
     }
-    return 0; // note: returns the temp as head
+    return 0;
   }
 
-  // note: will adjust position of each value towards the head of array
   private final int adjust(int i) {
-    return (i + capacity) % capacity; 
+    return (i + capacity) % capacity;
   }
 
-  // note: will show the front value or head of the array
   public int peekHead() {
     if (isEmpty()) {
       System.out.println("PEEK HEAD = NULL");
@@ -104,7 +97,6 @@ public class ArrayQueue {
     return 0;
   }
 
-  // note: will show the front value or head of the array
   public int peekTail() {
     tail = items-1;
     if (isEmpty()) {
@@ -118,8 +110,8 @@ public class ArrayQueue {
   }
 
   public static void main(String[] args) {
-    // note: construct a new array queue and assign 10 as the integer value for the size limit of the stack
-    System.out.println("STORAGE size = " + ); // todo: return the capacity limit of storage
+    ArrayQueue storage = new ArrayQueue(10);
+    System.out.println("STORAGE size = " + storage.capacity);
     System.out.println();
     storage.show(); // show empty queue
     storage.dequeue(); // can't remove on empty queue
