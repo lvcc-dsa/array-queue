@@ -87,7 +87,7 @@ public class ArrayQueue {
     return 0; // note: returns the temp as head
   }
 
-  // note: will adjust position of each value towards the head of array
+  // note: will wrap the array so we can adjust the position of each value towards the head of array
   private final int adjust(int i) {
     return (i + capacity) % capacity; 
   }
