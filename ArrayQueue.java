@@ -1,3 +1,12 @@
+/**
+* Java implementation of a stack using array.
+* For demo purpose, should hold a maximum of 10 string values.
+*
+* @author  [your full name here]
+* @link    [full github url]
+* @version [version number]
+* @since   [last updated dd/mm/yyyy]
+*/
 
 public class dsaqueue {
   
