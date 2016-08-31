@@ -2,10 +2,10 @@
 * Java implementation of a stack using array.
 * For demo purpose, should hold a maximum of 10 string values.
 *
-* @author  [your full name here]
-* @link    [full github url]
-* @version [version number]
-* @since   [last updated dd/mm/yyyy]
+* @author  [reymart san buenaventura]
+* @link    [https://github.com/mdash131]
+* @version [1]
+* @since   [last updated 31/08/2016]
 */
 
 public class dsaqueue {
