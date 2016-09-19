@@ -116,33 +116,19 @@ public class ArrayQueue {
 
   public static void main(String[] args) {
     ArrayQueue storage = new ArrayQueue(10);
-    storage.enqueue(1);   
-    storage.enqueue(2);    
-    storage.enqueue(3);    
-    storage.enqueue(4);    
-    storage.enqueue(5);
-    storage.enqueue(6); 
-    storage.enqueue(7); 
-    storage.enqueue(8); 
-    storage.enqueue(9);    
-    storage.enqueue(10); 
-    storage.show(); // show full storage
-    storage.enqueue(11);    
+    storage.enqueue(10);   
+    storage.enqueue(20);    
+    storage.enqueue(30);    
+    storage.enqueue(40);    
+    storage.enqueue(50);
+    storage.enqueue(60); 
+    storage.enqueue(70); 
+    storage.enqueue(80); 
+    storage.enqueue(90);    
+    storage.enqueue(100); 
+    storage.dequeue(); 
     storage.dequeue();
     storage.show();
-    storage.enqueue(12); 
-    storage.show(); // show full storage
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.dequeue(); 
-    storage.show(); // show empty storage
   }  
 
 }
